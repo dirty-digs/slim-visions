@@ -1,0 +1,72 @@
+:root {
+  --pool-blue: #0088AA;
+  --deep-azure: #003B4D;
+  --sun-bleached-gold: #FCEEA7;
+  --terracotta: #DFA086;
+  --warm-white: #F9F7F1;
+  --sand: #EDE4D5;
+  --coral-fade: #FF9E80;
+
+  --font-display: 'Syne', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+
+  --gutter: 4vw;
+  --radius-soft: 12px;
+  --radius-pill: 100px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--warm-white);
+  color: var(--deep-azure);
+  font-family: var(--font-serif);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  cursor: default;
+}
+
+.italic {
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(5%, 10%) scale(1.1); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Scroll-triggered reveal animations */
+.reveal-section .reveal-child {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-section.revealed .reveal-child {
+  opacity: 1;
+  transform: translateY(0);
+}
